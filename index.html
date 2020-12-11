@@ -63,7 +63,12 @@
       <img style="width: 300px;" src="imagen.png" alt="">
     </div>
   </div> -->
-
+  <div class="formulario">
+    <div class="dato">
+      <span>Nombres y Apellidos</span>
+      <input id="nombres">
+    </div>
+  </div>
   <div class="btn">
     <button id="cmd" style="height: 50px; background: yellow;">Obtener Diploma</button>
   </div>
@@ -75,10 +80,13 @@
 <script src="html2pdf.bundle.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function () {
-    console.log($('body')[0]);
-    console.log(document.body)
-    const $elementoParaConvertir = "<div class='diploma'><div class='title'><img style='width: 500px;' src='Certificado.png' alt=''></div><div class='cuerpo'><div class='logo'><img style='width: 200px;' src='logo.png' alt=''></div><br><span>El presente es para certificar que:</span><h1>Pierre Anthony Medina Velásquez</h1><p>Ha culminado satisfactoriamente 1 (un) año en las filas de galatea compartiendo su trabajo y promoviendo la cultura en la ciudad de Cajamarca</p><div class='logo'><img style='width: 200px;' src='firma.png' alt=''></div></div><div class='imagen'><img style='width: 300px;' src='imagen.png' alt=''></div></div>"; // <-- Aquí puedes elegir cualquier elemento del DOM
+    // console.log($('body')[0]);
+    // console.log(document.body)
+    
     $("#cmd").click(function () {
+      let $elementoParaConvertir = "<div class='diploma'><div class='title'><img style='width: 500px;' src='Certificado.png' alt=''></div><div class='cuerpo'><div class='logo'><img style='width: 200px;' src='logo.png' alt=''></div><br><span>El presente es para certificar que:</span><h1>" + $("#nombres").val() + "</h1><p>Ha culminado satisfactoriamente 1 (un) año en las filas de galatea compartiendo su trabajo y promoviendo la cultura en la ciudad de Cajamarca</p><div class='logo'><img style='width: 200px;' src='firma.png' alt=''></div></div><div class='imagen'><img style='width: 300px;' src='imagen.png' alt=''></div></div>"; // <-- Aquí puedes elegir cualquier elemento del DOM
+      console.log($("#nombres").val());
+      console.log($elementoParaConvertir);
       html2pdf()
         .set({
           margin: 0,
